@@ -1,35 +1,43 @@
-const producto = parseInt(prompt("que producto le gustaria comprar? : 1.libreta - 2.boligrafo - 3.lapiz - 4.goma"))
+let producto = parseInt(prompt("que producto le gustaria comprar? : 1.libreta - 2.boligrafo - 3.lapiz - 4.goma"))
 let deseaSeguirComprando = true
 let totalCompra = 0
 let decision
 
-class NuevoProductos{
-    constructor (id,nombre,precio) {
-        this.id = id
-        this.nombre = nombre
-        this.precio = precio
-    }
-}
-
-const libreta = new NuevoProductos (1,"libreta",450)
-const boligrafo = new NuevoProductos (2,"boligrafo",120)
-const lapiz =  new NuevoProductos (3,"lapiz",80)
-const goma = new NuevoProductos (4,"goma",50)
-
 while (deseaSeguirComprando === true){
-    if (producto === libreta.id) {
-        totalCompra = totalCompra + libreta.precio
-    } else if (producto === boligrafo.id) {
-        totalCompra = totalCompra + boligrafo.precio
-    } else if (producto === lapiz.id) {
-        totalCompra = totalCompra + lapiz.precio
-    } else if (producto === goma.id) {
-        totalCompra = totalCompra + goma.precio
+
+    if (producto === 1) {
+        totalCompra = totalCompra + 450
+    } else if (producto === 2) {
+        totalCompra = totalCompra + 120
+    } else if (producto === 3) {
+        totalCompra = totalCompra + 70
+    } else if (producto === 4) {
+        totalCompra = totalCompra + 60
+    }
+
+
+    decision = parseInt (prompt("quiere seguir comprando? 1.Si - 2.No"))
+    if (decision === 1) {
+    producto = parseInt(prompt("que producto le gustaria comprar? : 1.libreta - 2.boligrafo - 3.lapiz - 4.goma"))
+    }
+    else {
+        deseaSeguirComprando = false
     }
 }
 
-decision = parseInt(prompt("quiere seguir comprando? 1.Si - 2.No")) {
-    if (decision === 1) {
-        const producto = parseInt(prompt("que producto le gustaria comprar? : 1.libreta - 2.boligrafo - 3.lapiz - 4.goma"))
-    } else { deseaSeguirComprando === false}
+const totalCompraConDescuento = descuento (totalCompra)
+alert ("Su total es " + totalCompraConDescuento )
+
+function descuento(valor){
+    let descuento = 0
+    if (valor<=700) {
+        descuento = 10
+    }
+
+    let valorDescuento = valor * (descuento/100)
+    let valorFinal = valor - valorDescuento
+    return valorFinal
+    
 }
+
+
